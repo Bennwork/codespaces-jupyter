@@ -21,7 +21,7 @@ for i in ip_array:
     
             for port in range(1,65535):
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                result = sock.connect_ex((ip_array[i], port))
+                result = sock.connect_ex((i, port))
             if result == 0:
                 print ("port{}:     open".format(port))
                 sock.close
