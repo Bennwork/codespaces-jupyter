@@ -1,4 +1,4 @@
-import bs4 as BeautifulSoup
+from bs4 import BeautifulSoup
 import requests
 import cssutils
 import validators
@@ -8,16 +8,19 @@ import pandas as pd
 def get_content(url):
     return requests.get(url).text
 
-url_input = input("enter a valid URL to scape from ")
+url_input = "https://www.welt.de/"
+#url_input = input("enter a valid URL to scape from ")
 if validators.url(url_input):
-    webseite = get_content(url_input)
-    results = BeautifulSoup(webseite.get_content, 'html.parser')
-    print(results)
+ 
+    content = get_content(url_input)
+    soup = BeautifulSoup(content)
+    tag_array = []
+    for tag in soup.findAll():
+        tag_array.append(tag.name)
+
 else:
     print("invalid URL")
     sys.exit
-    
+print(tag_array[1])
 
-
-    
     
