@@ -4,7 +4,7 @@ import sys
 from datetime import datetime
 import subprocess 
 ip_array=[]
-for ping in range(1,10): 
+for ping in range(1,9): 
     address = "127.0.0." + str(ping) 
     res = subprocess.call(['ping', '-c', '3', address]) 
     if res == 0: 
